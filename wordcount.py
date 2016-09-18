@@ -52,9 +52,11 @@ import sys
 
 
 def print_words(filename):
-  import operator
+  import operator, string
   file = open(filename,'r')
   sheet = file.read()
+  table = string.maketrans("","")
+  sheet = sheet.translate(table, string.punctuation)
   split_list = sheet.split()
   dict_count = {}
   for i in split_list:
@@ -67,9 +69,13 @@ def print_words(filename):
    print i[0], " ",i[1]
 
 def print_top(filename):
-  import operator
+  import operator, string
   file = open(filename,'r')
   sheet = file.read()
+  table = string.maketrans("","")
+  sheet = sheet.translate(table, string.punctuation)
+  print sheet
+  print 'hey'
   split_list = sheet.split()
   dict_count = {}
   for i in split_list:
@@ -101,8 +107,8 @@ def main():
 
 if __name__ == '__main__':
   main()
-  print_words(filename)
-  print_top(filename)
+ # print_words(filename)
+ #  print_top(filename)
 
 #def split_wo_punct(wrdls):
  # import string
